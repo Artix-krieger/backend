@@ -56,7 +56,7 @@ const userSchema = new Schema(
 // It is checking if the password was modified, if it was, it will encrypt it before saving.
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
-  this.password = bcrypt.hash(this.password, 10);
+  this.password = await bcrypt.hash(this.password, 10);
   next();
 });
 
