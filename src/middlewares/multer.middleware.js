@@ -8,7 +8,6 @@ const storage = multer.diskStorage({
   },
   // filename is a function where you define the name of the saved file
   filename: function (req, file, cb) {
-    console.log("Multer :: inside storage method ", file);
     // Here, I am using the original name of the file
     cb(null, file.originalname);
   },
